@@ -41,6 +41,14 @@ function showModal() {
 
   document.body.appendChild(modal);
 
+  // Randomly position the box within the visible viewport
+  const box = modal.querySelector(".mindful-box");
+  const maxLeft = window.innerWidth - box.offsetWidth;
+  const maxTop = window.innerHeight - box.offsetHeight;
+  box.style.position = "absolute";
+  box.style.left = Math.floor(Math.random() * maxLeft) + "px";
+  box.style.top = Math.floor(Math.random() * maxTop) + "px";
+
   document.getElementById("yes-btn").onclick = () => closeModal("yes");
   document.getElementById("no-btn").onclick = () => closeModal("no");
 }
